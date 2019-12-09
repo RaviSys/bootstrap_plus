@@ -16,7 +16,7 @@ module BootstrapPlus
         if File.exist?(js_manifest)
           insert_into_file js_manifest, "//= require jquery3\n", after: "rails-ujs\n"
           insert_into_file js_manifest, "//= require popper\n", after: "jquery3\n"
-          insert_into_file js_manifest, "//= require twitter/bootstrap\n", after: "popper\n"
+          insert_into_file js_manifest, "//= require bootstrap\n", after: "popper\n"
         else
           copy_file "application.js", js_manifest
         end
@@ -39,16 +39,16 @@ module BootstrapPlus
       end
 
       def add_bootstrap
-        if use_coffeescript?
-          copy_file "bootstrap.coffee", "app/assets/javascripts/bootstrap.js.coffee"
-        else
-          copy_file "bootstrap.js", "app/assets/javascripts/bootstrap.js"
-        end
-        if use_less?
-          copy_file "bootstrap_and_overrides.less", "app/assets/stylesheets/bootstrap_and_overrides.css.less"
-        else
-          copy_file "bootstrap_and_overrides.css", "app/assets/stylesheets/bootstrap_and_overrides.css"
-        end
+        copy_file "bootstrap.js", "app/assets/javascripts/bootstrap.js"
+        copy_file "bootstrap_and_overrides.css", "app/assets/stylesheets/bootstrap_and_overrides.css"
+        # if use_coffeescript?
+        #   copy_file "bootstrap.coffee", "app/assets/javascripts/bootstrap.js.coffee"
+        # else
+        # end
+        # if use_less?
+        #   copy_file "bootstrap_and_overrides.less", "app/assets/stylesheets/bootstrap_and_overrides.css.less"
+        # else
+        # end
       end
 
       def add_locale
