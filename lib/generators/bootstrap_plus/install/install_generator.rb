@@ -39,7 +39,7 @@ module BootstrapPlus
       end
 
       def add_bootstrap
-        copy_file "bootstrap.js", "app/assets/javascripts/bootstrap.js"
+        # copy_file "bootstrap.js", "app/assets/javascripts/bootstrap.js"
         copy_file "bootstrap_and_overrides.css", "app/assets/stylesheets/bootstrap_and_overrides.css"
         # if use_coffeescript?
         #   copy_file "bootstrap.coffee", "app/assets/javascripts/bootstrap.js.coffee"
